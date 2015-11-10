@@ -7,5 +7,9 @@
   <body>
     <h1>Authentication</h1>
     <h2>profile.ejs</h2>
+    <p><a href='/logout'>Log Out</a></p>
+    <h2>id: <%= user._id %></h2>
+    <h2>email: <%= user.local.email %></h2>
+    <h2>password: <%= user.local.password %></h2>
   </body>
 </html>
