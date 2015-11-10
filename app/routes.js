@@ -1,4 +1,5 @@
 var User = require('../app/models/user.js');
+var Recipe = require('../app/models/recipe.js');
 
 module.exports = function(app, passport){
 
@@ -29,9 +30,21 @@ module.exports = function(app, passport){
   }));
 
   app.get('/profile', isLoggedIn, function(req,res){
-    res.render('profile.ejs', {
-      user : req.user // pass user from session to template
+    Recipe.find({}, function(err,recipe){
+      for (var i = 0; i < recipe.length; i++) {
+        var ings = recipe[i].ingredients;
+        console.log(ings);
+      }
+      // req.user.newstuff = recipe
+
+
+      //render page and pass current user object
+      res.render('profile.ejs', {
+        user : req.user // pass user from session to template
+      });
+
     });
+
 
     // add ingredient to current user
     app.post('/addIng', function(req,res){
