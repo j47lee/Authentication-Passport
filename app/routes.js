@@ -16,7 +16,11 @@ module.exports = function(app, passport){
   });
 
   // process the signup form
-  // app.post('/signup', do all our passport stuff here);
+  app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect : '/profile', //send user to profile page if successful signup
+    failureRedirect : '/signup', //send user to signup if unsuccessful signup
+    failureFlash : true
+  }));
 
   app.get('/profile', isLoggedIn, function(req,res){
     res.render('profile.ejs', {
