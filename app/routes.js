@@ -35,51 +35,19 @@ module.exports = function(app, passport){
 
     // add ingredient to current user
     app.post('/addIng', function(req,res){
-      // console.log(req.body.ingredient);
-      // console.log(req.user.local.email);
-      // console.log(req.user._id);
-
-      // User.findOne({ 'local.email' : req.user.local.email }, function(err,user){
-      //   if (err) throw err;
-      //   userIngArray = user.local.ingredients;
-      //   newIng = req.body.ingredient;
-      //   userIngArray.push(newIng);
-      // })
-
-      // User.update({"local.email":req.user.local.email}, {$push: {"local.ingredients":req.body.ingredient}})
-      // console.log(req.user.local);
-
       User.findById(req.user._id, function(err,user){
         if (err) throw err;
-        user.local.ingredients = 'bananas';
+        user.local.ingredients.push(req.body.ingredient);
         user.save(function(err){
           if (err) console.log(err);
           console.log('Successfully added ingredient');
-        })
-      })
+          console.log(user);
+        });
+        res.render('profile.ejs', { user : req.user });
+      });
+    }); // end POST /addIng
 
-      // Place.findById(req.params.id, function(err, p) {
-      //   if (!p)
-      //     return next(new Error('Could not load Document'));
-      //   else {
-      //     // do your updates here
-      //     p.modified = new Date();
-      //
-      //     p.save(function(err) {
-      //       if (err)
-      //         console.log('error')
-      //       else
-      //         console.log('success')
-      //     });
-      //   }
-      // });
-
-
-      res.render('profile.ejs', { user : req.user })
-
-    })
-
-  });
+  }); // end GET /profile
 
   app.get('/logout', function(req,res){
     req.logout();
