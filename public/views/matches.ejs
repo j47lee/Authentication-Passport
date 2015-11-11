@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Matches</title>
+  </head>
+  <body>
+    <h1>Kitchen-Counter-2.0</h1>
+    <h2>matches.ejs</h2>
+    <h2>Matching Recipes:</h2>
+
+    <ul>
+      <% for (i=0; i < user.local.matches.length; i++) { %>
+        <li><%= user.local.matches[i] %></li>
+      <% } %>
+    </ul>
+
+    <a href="/profile">Back to profile page</a>
+
+  </body>
+</html>

@@ -71,8 +71,6 @@ module.exports = function(app, passport){
       res.render('matches.ejs', { user : req.user });
     });
 
-
-
   }); // end GET /profile
 
   app.get('/logout', function(req,res){

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Kitchen Counter 2.0</h1>
+    <h2>login.ejs</h2>
+
+    <!-- messages from authentication -->
+    <% if (message.length > 0) { %>
+      <div><%= message %></div>
+    <% } %>
+
+    <!-- LOGIN FORM -->
+    <form action="/login" method="post">
+      Email: <input type="text" name="email">
+      Password: <input type='text' name='password'>
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- footer -->
+    <p><a href='/signup'>Sign-up</a></p>
+    <p><a href='/'>Home</a></p>
+
+  </body>
+</html>

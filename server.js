@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
 
+app.use('/assets', express.static(__dirname + '/public')) //setup public assets
+
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -21,6 +23,7 @@ app.use(morgan('dev')); //log requests to console
 app.use(cookieParser()); // reads cookies for authentication
 app.use(bodyParser()); // retrieve info from html forms
 
+app.set('views', __dirname + '/public/views');
 app.set('view engine', 'ejs');
 
 app.use(session({ secret : 'lakers' })); // session secret

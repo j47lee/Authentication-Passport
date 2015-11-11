@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User</title>
+  </head>
+  <body>
+    <h1>Kitchen Counter 2.0</h1>
+    <h2>profile.ejs</h2>
+    <p><a href='/logout'>Log Out</a></p>
+    <h2>id: <%= user._id %></h2>
+    <h2>email: <%= user.local.email %></h2>
+    <h2>ingredients:</h2>
+
+    <ul>
+      <% for (i=0; i < user.local.ingredients.length; i++) { %>
+        <li><%= user.local.ingredients[i] %><a href='/deleteIng/<%= user.local.ingredients[i]%>/<%= i %>'>Delete</a></li>
+      <% } %>
+    </ul>
+
+    <form action="/addIng" method="post">
+      <input type="text" name="ingredient">
+      <button type="submit">Add Ingredient</button>
+    </form>
+
+    <h2><a href='/matches'>Find matching recipes</a></h2>
+
+  </body>
+</html>
