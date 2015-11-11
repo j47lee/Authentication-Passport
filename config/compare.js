@@ -18,6 +18,7 @@ module.exports = function(userIngArray, user){
               // loop through each ingredient of the user
               for (var k = 0; k < userIngArray.length; k++) {
                 if (recipeIngArray[j] == userIngArray[k]) {
+                  // console.log('ingredients match', recipeIngArray[j], userIngArray[k]);
                   totalmatches++;
                 } else {
                 }
@@ -26,7 +27,7 @@ module.exports = function(userIngArray, user){
 
           // comparison totalmatches results
           if (totalmatches/recipeIngArray.length === 1) {
-          // console.log('Recipe matches:', recipes[i].title);
+          // console.log('Recipe matches:--------------', recipes[i].title);
           user.matches.push(recipes[i].title);
           // console.log(user.matches, i);
           user.save();
