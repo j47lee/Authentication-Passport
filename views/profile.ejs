@@ -10,7 +10,12 @@
     <p><a href='/logout'>Log Out</a></p>
     <h2>id: <%= user._id %></h2>
     <h2>email: <%= user.local.email %></h2>
-    <h2>ingredients: <%= user.local.ingredients %></h2>
+    <h2>ingredients</h2>
+
+    <% for (i=0; i < user.local.ingredients.length; i++) { %>
+      <p><%= user.local.ingredients[i] %></p>
+    <% } %>
+
     <h1>Matches: <%= user.local.matches %></h1>
 
     <form action="/addIng" method="post">

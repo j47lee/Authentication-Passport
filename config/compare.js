@@ -29,13 +29,12 @@ module.exports = function(userIngArray, user){
           user.save();
           }
       } else {
-        console.log('RECIPE ALREADY EXISTS IN USERS MATCHES --------', recipes[i].title);
+        console.log('RECIPE ALREADY EXISTS IN USERS MATCHES ARRAY --------', recipes[i].title);
       } // end existing recipe check
 
     } // end i loop each recipe
     // console.log(user.matches);
     // return user.matches
   });// end Recipe.find
-
 
 };

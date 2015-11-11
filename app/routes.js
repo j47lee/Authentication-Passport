@@ -1,6 +1,6 @@
 var User = require('../app/models/user.js');
 var Recipe = require('../app/models/recipe.js');
-var compare = require('../config/compare.js')
+var compare = require('../config/compare.js');
 
 module.exports = function(app, passport){
 
@@ -32,7 +32,7 @@ module.exports = function(app, passport){
 
   app.get('/profile', isLoggedIn, function(req,res){
 
-    // req.user.results = req.user.local.matches;
+    // run compare function to compare recipe and user ingredients
     compare(req.user.local.ingredients, req.user.local);
 
     res.render('profile.ejs', {
@@ -51,8 +51,13 @@ module.exports = function(app, passport){
         });
         res.render('profile.ejs', { user : req.user });
       });
-
     }); // end POST /addIng
+
+    app.delete('/recipe/:id', function(req,res){
+      
+    })
+
+
 
   }); // end GET /profile
 
