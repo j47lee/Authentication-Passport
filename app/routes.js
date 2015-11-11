@@ -53,8 +53,8 @@ module.exports = function(app, passport){
       });
     }); // end POST /addIng
 
-    app.delete('/recipe/:id', function(req,res){
-      
+    app.delete('/userIng/:id', function(req,res){
+
     })
 
 
