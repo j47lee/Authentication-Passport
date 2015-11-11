@@ -3,13 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>index.ejs</title>
+
     <link rel="stylesheet" href="assets/css/style.css" media="screen">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
   </head>
   <body>
-    <h1>Kitchen Counter 2.0</h1>
-    <h3>Please Login or Sign-up</h3>
 
-    <p><a href="/login">Login</a></p>
-    <p><a href="/signup">Sign-up</a></p>
+    <div class="frame"></div>
+
+    <div class="main">
+      <h1 class="jumbotron" style='font-family:Georgia; font-style:italic'>Welcome to Kitchen Counter!</h1>
+      <h4>Login to manage your ingredients.</h4>
+
+      <br>
+
+      <a href="/login" class="btn btn-primary btn-lg">Login</a>
+
+      <br>
+      <br>
+
+      <a href="/signup" class="glyphicon glyphicon-plus">Sign-up</a>
+
+    </div>
+
   </body>
 </html>

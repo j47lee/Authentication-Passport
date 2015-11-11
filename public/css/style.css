@@ -1,10 +1,23 @@
 body {
-    color: red;
     background: url("../images/vegetables_bg.jpg") no-repeat center center fixed;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-
     text-align: center;
+}
+
+.frame {
+  background-color: white;
+  opacity: .5;
+  position: fixed;
+  top: 15%;
+  bottom: 15%;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.main {
+  margin-top: 20%;
 }
