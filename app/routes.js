@@ -67,6 +67,12 @@ module.exports = function(app, passport){
       });
     }); // end GET /deleteIng
 
+    app.get('/matches', function(req,res){
+      res.render('matches.ejs', { user : req.user });
+    });
+
+
+
   }); // end GET /profile
 
   app.get('/logout', function(req,res){

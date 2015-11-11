@@ -18,12 +18,13 @@
       <% } %>
     </ul>
 
-    <h1>Matches: <%= user.local.matches %></h1>
-
     <form action="/addIng" method="post">
       <input type="text" name="ingredient">
       <button type="submit">Add Ingredient</button>
     </form>
+
+    <h2><a href='/matches'>Matching recipes</a></h2>
+    <h1>Recipe Matches: <%= user.local.matches %></h1>
 
   </body>
 </html>
