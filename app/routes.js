@@ -1,5 +1,6 @@
 var User = require('../app/models/user.js');
 var Recipe = require('../app/models/recipe.js');
+var compare = require('../config/compare.js')
 
 module.exports = function(app, passport){
 
@@ -30,21 +31,13 @@ module.exports = function(app, passport){
   }));
 
   app.get('/profile', isLoggedIn, function(req,res){
-    Recipe.find({}, function(err,recipe){
-      for (var i = 0; i < recipe.length; i++) {
-        var ings = recipe[i].ingredients;
-        console.log(ings);
-      }
-      // req.user.newstuff = recipe
 
+    // req.user.results = req.user.local.matches;
+    compare(req.user.local.ingredients, req.user.local);
 
-      //render page and pass current user object
-      res.render('profile.ejs', {
-        user : req.user // pass user from session to template
-      });
-
+    res.render('profile.ejs', {
+      user : req.user // pass user from session to template
     });
-
 
     // add ingredient to current user
     app.post('/addIng', function(req,res){
@@ -58,9 +51,16 @@ module.exports = function(app, passport){
         });
         res.render('profile.ejs', { user : req.user });
       });
+
     }); // end POST /addIng
 
   }); // end GET /profile
+
+  app.get('/matches', function(req,res){
+    console.log(req.user.local);
+    // res.send(req.user.local.matches);
+    res.render('matches.ejs', { user : req.user })
+  });
 
   app.get('/logout', function(req,res){
     req.logout();
