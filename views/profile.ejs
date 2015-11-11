@@ -11,9 +11,7 @@
     <h2>id: <%= user._id %></h2>
     <h2>email: <%= user.local.email %></h2>
     <h2>ingredients: <%= user.local.ingredients %></h2>
-    <h1>Matches: <%= user.local.results %></h1>
-
-    <a href="/matches">Matches</a>
+    <h1>Matches: <%= user.local.matches %></h1>
 
     <form action="/addIng" method="post">
       <input type="text" name="ingredient">

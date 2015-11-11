@@ -56,12 +56,6 @@ module.exports = function(app, passport){
 
   }); // end GET /profile
 
-  app.get('/matches', function(req,res){
-    console.log(req.user.local);
-    // res.send(req.user.local.matches);
-    res.render('matches.ejs', { user : req.user })
-  });
-
   app.get('/logout', function(req,res){
     req.logout();
     res.redirect('/');
