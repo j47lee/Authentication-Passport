@@ -14,11 +14,9 @@
 
     <ul>
       <% for (i=0; i < user.local.ingredients.length; i++) { %>
-        <li><%= user.local.ingredients[i] %><a href='/userIng/:<%= user.local.ingredients[i] %>'>Delete</a></li>
+        <li><%= user.local.ingredients[i] %><a href='/deleteIng/<%= user.local.ingredients[i]%>/<%= i %>'>Delete</a></li>
       <% } %>
     </ul>
-
-
 
     <h1>Matches: <%= user.local.matches %></h1>
 
