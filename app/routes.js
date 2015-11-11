@@ -53,6 +53,7 @@ module.exports = function(app, passport){
       });
     }); // end POST /addIng
 
+    // delete ingredient from current user
     app.get('/deleteIng/:name/:index', function(req,res){
       User.findById(req.user._id, function(err,user){
         if (err) throw err;
@@ -63,7 +64,8 @@ module.exports = function(app, passport){
           console.log(ingredientsArray);
           console.log('Successfully deleted ingredient');
         });
-        res.render('profile.ejs', { user : req.user });
+        res.end('deleted');
+        // res.render('profile.ejs', { user : req.user });
       });
     }); // end GET /deleteIng
 

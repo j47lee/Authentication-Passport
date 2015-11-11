@@ -19,10 +19,18 @@ body {
 }
 
 .main {
-  margin-top: 30%;
+  margin-top: 20%;
+  margin-bottom: 20%;
 }
 
 .logForm {
   margin: 0 auto;
   width: 50%;
+}
+
+.header {
+  background-color: white;
+  font-size: 3em;
+  text-align: right;
+  opacity: .7;
 }
