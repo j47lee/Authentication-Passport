@@ -16,22 +16,38 @@
 
     <div class="header">Kitchen Counter</div>
 
-    <h2>email: <%= user.local.email %></h2>
-    <p><a href='/logout'>Log Out</a></p>
-    <h2>ingredients:</h2>
+    <div class="content">
 
-    <ul>
-      <% for (i=0; i < user.local.ingredients.length; i++) { %>
-        <li><%= user.local.ingredients[i] %><a href='/deleteIng/<%= user.local.ingredients[i]%>/<%= i %>'>Delete</a></li>
-      <% } %>
-    </ul>
+        <h2>Welcome, <%= user.local.email %>!</h2>
+        <a href='/logout'>Log Out</a>
 
-    <form action="/addIng" method="post">
-      <input type="text" name="ingredient">
-      <button type="submit">Add Ingredient</button>
-    </form>
+        <hr>
 
-    <h2><a href='/matches'>Find matching recipes</a></h2>
+        <a href='/matches' class="btn btn-default">Find matching recipes</a>
+
+        <hr>
+
+        <h5>Your ingredients:</h5>
+
+        <table class='table table-striped'>
+          <tr>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+          <% for (i=0; i < user.local.ingredients.length; i++) { %>
+          <tr>
+            <td><%= user.local.ingredients[i] %></td>
+            <td><a href='/deleteIng/<%= user.local.ingredients[i]%>/<%= i %>'>Remove</a></td>
+          </tr>
+          <% } %>
+        </table>
+
+        <form action="/addIng" method="post">
+          <input type="text" name="ingredient" placeholder='apples'>
+          <button type="submit" class="btn btn-success btn-xs">Add Ingredient</button>
+        </form>
+
+    </div>
 
   </body>
 </html>

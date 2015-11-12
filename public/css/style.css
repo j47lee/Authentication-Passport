@@ -34,3 +34,11 @@ body {
   text-align: right;
   opacity: .7;
 }
+
+.content {
+  text-align: left;
+  margin: 0 auto;
+  background-color: white;
+  width: 70%;
+  padding: 2% 5%;
+}
