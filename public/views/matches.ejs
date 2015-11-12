@@ -16,17 +16,28 @@
 
     <div class="header">Kitchen Counter</div>
 
-    <h1>Kitchen-Counter-2.0</h1>
-    <h2>matches.ejs</h2>
-    <h2>Matching Recipes:</h2>
+    <div class="content">
 
-    <ul>
-      <% for (i=0; i < user.local.matches.length; i++) { %>
-        <li><%= user.local.matches[i] %></li>
-      <% } %>
-    </ul>
+      <h4><%= user.local.email %></h4>
+      <a href='/logout'>Log Out</a>
 
-    <a href="/profile">Back to profile page</a>
+      <hr>
+
+      <h2>Matching Recipes</h2>
+      <h4 style='font-family:Georgia; font-style:italic'>You have enough ingredients to cook up the following recipes!</h4>
+
+      <ul>
+        <% for (i=0; i < user.local.matches.length; i++) { %>
+          <li><%= user.local.matches[i] %></li>
+        <% } %>
+      </ul>
+
+      <hr>
+
+      <a href="/profile" class="btn btn-default">Back</a>
+
+    </div>
+
 
   </body>
 </html>
