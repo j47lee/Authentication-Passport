@@ -2,20 +2,27 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
 var mongoose = require('mongoose');
+var uriUtil = require('mongodb-uri');
+
 var passport = require('passport');
 var flash = require('connect-flash');
 
-app.use('/assets', express.static(__dirname + '/public')) //setup public assets
+app.use('/assets', express.static(__dirname + '/public')); //setup public assets
 
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session')
+var session = require('express-session');
 
-// bring in the database configuration to MongoLab
-var configDB = require('./config/database')
-
-mongoose.connect(configDB.url); //database connection
+//set up database (convert standard MongoDB connection string format to the one that Mongoose expects)
+var mongodbUri = require('./config/database').url;
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+mongoose.connect(mongooseUri);
+mongoose.connect(mongooseUri, function(err){
+  if (err) {
+    console.log('---There was an error connecting to the database!');
+  }
+});
 
 require('./config/passport')(passport);
 
