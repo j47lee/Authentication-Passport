@@ -7,7 +7,7 @@ var userSchema = mongoose.Schema({
     email: String,
     password: String,
     ingredients: [],
-    matches: []
+    matches: [],
   }
 });
 

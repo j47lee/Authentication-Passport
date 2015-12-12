@@ -57,15 +57,15 @@ module.exports = function(app, passport){
     app.get('/deleteIng/:name/:index', function(req,res){
       User.findById(req.user._id, function(err,user){
         if (err) throw err;
-        var ingredientsArray = user.local.ingredients
-        ingredientsArray.splice(req.params.index, 1)
+        var ingredientsArray = user.local.ingredients;
+        ingredientsArray.splice(req.params.index, 1);
         user.save(function(err){
           if (err) console.log(err);
           console.log(ingredientsArray);
           console.log('Successfully deleted ingredient');
         });
-        res.end('deleted');
-        // res.render('profile.ejs', { user : req.user });
+        // res.end('deleted');
+        res.render('profile.ejs', { user : req.user });
       });
     }); // end GET /deleteIng
 

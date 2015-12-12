@@ -28,8 +28,9 @@ module.exports = function(userIngArray, user){
           // comparison totalmatches results
           if (totalmatches/recipeIngArray.length === 1) {
           // console.log('Recipe matches:--------------', recipes[i].title);
-          user.matches.push(recipes[i].title);
-          // console.log(user.matches, i);
+          user.matches.push(recipes[i]);
+          // console.log('-----user matches', user.matches, i);
+          // console.log('----user', user);
           user.save();
           }
 

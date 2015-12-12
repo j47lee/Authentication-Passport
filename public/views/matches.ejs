@@ -28,7 +28,12 @@
 
       <ul>
         <% for (i=0; i < user.local.matches.length; i++) { %>
-          <li><%= user.local.matches[i] %></li>
+          <li><strong><%= user.local.matches[i].title %></strong></li>
+          <li>ingredients: <%= user.local.matches[i].ingredients %></li>
+          <li>description: <%= user.local.matches[i].description %></li>
+          <li>directions: <%= user.local.matches[i].directions %></li>
+          <img src="<%= user.local.matches[i].imageurl %>" alt="<%= user.local.matches[i].title %> image" style="width: 100px; height: 100px"/>
+          <a href="<%= user.local.matches[i].recipeurl %>">Link to Recipe details</a>
         <% } %>
       </ul>
 
